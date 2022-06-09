@@ -55,8 +55,8 @@ curl -sfL https://get.k3s.io | sh -
 grep -E --color 'vmx|svm' /proc/cpuinfo
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   && chmod +x minikube
-sudo mkdir -p /usr/local/bin/
-sudo install minikube /usr/local/bin/
+mkdir -p /usr/local/bin/
+install minikube /usr/local/bin/
 
 # Install Lens
 curl -LO "https://api.k8slens.dev/binaries/Lens-5.5.3-latest.20220602.2.x86_64.rpm"
@@ -83,11 +83,15 @@ unzip awscliv2.zip
 ./aws/install
 
 # Install ZSH
+# https://www.sitepoint.com/zsh-tips-tricks/
+# https://unix.stackexchange.com/questions/30168/how-to-enable-reverse-search-in-zsh
 dnf install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 grep $USER /etc/passwd
 chsh -s $(which zsh)
 grep $USER /etc/passwd
 
-# https://www.sitepoint.com/zsh-tips-tricks/
-# https://unix.stackexchange.com/questions/30168/how-to-enable-reverse-search-in-zsh
+# Install Git
+dnf install git-all
+
+
